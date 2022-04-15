@@ -1,14 +1,11 @@
 package edu.andrews.cptr252.sandrine.quizapp;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
-import android.os.Bundle;
-
-public class MainScreenActivity extends AppCompatActivity {
+public class MainScreenActivity extends SingleFragmentActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+    protected Fragment createFragment() {
+        return new MainScreenFragment();
     }
 }
