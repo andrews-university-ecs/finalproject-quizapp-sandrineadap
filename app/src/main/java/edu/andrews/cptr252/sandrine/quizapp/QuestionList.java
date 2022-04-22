@@ -1,6 +1,7 @@
 package edu.andrews.cptr252.sandrine.quizapp;
 import android.content.Context;
 import java.util.ArrayList;
+import java.util.UUID;
 
 /**
  * Manage list of questions.
@@ -22,7 +23,7 @@ public class QuestionList {
         // for now, create a list of 10 dummy questions
         for (int i = 0; i < 10; i++) {
             Question question = new Question();
-            question.setQuestion("Question #" + i);
+            question.setContent("Question #" + i);
             // every other answer is true
             question.setAnswer(i % 2 == 0);
             mQuestions.add(question);
@@ -47,4 +48,17 @@ public class QuestionList {
      * @return Array of question objects
      */
     public ArrayList<Question> getQuestions() { return mQuestions; }
+
+    /**
+     * Return the Question with a given id.
+     * @param id Unique id for the question
+     * @return The question object or null if not found.
+     */
+    public Question getQuestion(UUID id) {
+        for (Question question : mQuestions) {
+            if (question.getId().equals(id))
+                return question;
+        }
+        return null;
+    }
 }

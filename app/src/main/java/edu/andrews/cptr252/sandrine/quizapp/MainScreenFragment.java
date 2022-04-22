@@ -51,7 +51,6 @@ public class MainScreenFragment extends Fragment {
         return fragment;
     }
 
-    // TODO: /** Launch QuestionListFragment */
     private void launchQuestionList() {
         Intent i = new Intent(MainScreenFragment.this.getContext(), QuestionListActivity.class);
         startActivity(i);
@@ -79,7 +78,6 @@ public class MainScreenFragment extends Fragment {
         mEditQuestionsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Edit Questions Button should launch Questions List Screen
                 launchQuestionList();
                 // log a message for now
                 Log.d(TAG, "edit_questions_button was pressed");

@@ -8,8 +8,8 @@ public class Question {
     /** Unique Id for each question */
     private UUID mId;
 
-    /** Question to ask */
-    private String mQuestion;
+    /** Content of question to ask */
+    private String mContent;
 
     /** Correct answer (true or false questions) */
     private boolean mAnswer;
@@ -32,16 +32,16 @@ public class Question {
     /**
      * @return question to be asked
      */
-    public String getQuestion() {
-        return mQuestion;
+    public String getContent() {
+        return mContent;
     }
 
     /**
      * provide new question to be asked
-     * @param  question New question
+     * @param content of New question
      */
-    public void setQuestion(String question) {
-        mQuestion = question;
+    public void setContent(String content) {
+        mContent = content;
     }
 
     public boolean getAnswer() { return mAnswer; }

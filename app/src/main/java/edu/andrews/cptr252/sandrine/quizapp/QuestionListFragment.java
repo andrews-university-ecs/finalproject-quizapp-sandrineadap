@@ -43,7 +43,7 @@ public class QuestionListFragment extends Fragment {
 
         // for now, list questions in log
         for (Question question: mQuestions){
-            Log.d(TAG, question.getQuestion());
+            Log.d(TAG, question.getContent());
         }
     }
 

@@ -63,7 +63,7 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             int position = getAdapterPosition();
             if (position != RecyclerView.NO_POSITION) {
                 Question question = mQuestions.get(position);
-                Log.d(TAG, question.getQuestion() + " was clicked");
+                Log.d(TAG, question.getContent() + " was clicked");
 
                 //TODO: Start an instance of QuestionEditorFragment
 //                // start an instance of BugDetailsFragment
@@ -104,7 +104,8 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
         RadioButton trueChoiceButton = viewHolder.trueChoiceButton;
         RadioButton falseChoiceButton = viewHolder.falseChoiceButton;
         // Update widgets on view with bug details
-        questionTextView.setText(question.getQuestion());
+        questionTextView.setText(question.getContent());
+
         //TODO: Figure out how to check the correct answer
         trueChoiceButton.setChecked(question.getAnswer());
         falseChoiceButton.setChecked(!question.getAnswer());
