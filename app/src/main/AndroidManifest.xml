@@ -21,6 +21,9 @@
         <activity
             android:name=".QuestionListActivity">
         </activity>
+        <activity
+            android:name=".QuestionEditorActivity">
+        </activity>
 
     </application>
 

@@ -49,6 +49,10 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
             questionTextView = itemView.findViewById(R.id.question_list_item_titleTextView);
             trueChoiceButton = itemView.findViewById(R.id.question_list_item_radioButton_true);
             falseChoiceButton = itemView.findViewById(R.id.question_list_item_radioButton_false);
+
+            // Get the context of the view. This will be the activity hosting the view.
+            mContext = itemView.getContext();
+
             itemView.setOnClickListener(this);
         }
 
@@ -65,12 +69,11 @@ public class QuestionAdapter extends RecyclerView.Adapter<QuestionAdapter.ViewHo
                 Question question = mQuestions.get(position);
                 Log.d(TAG, question.getContent() + " was clicked");
 
-                //TODO: Start an instance of QuestionEditorFragment
-//                // start an instance of BugDetailsFragment
-//                Intent i = new Intent(mContext, QuestionEditorActivity.class);
-//                // pass the id of the bug as an intent
-//                i.putExtra(QuestionEditorFragment.EXTRA_QUESTION_ID, question.getId());
-//                mContext.startActivity(i);
+                // start an instance of QuestionEditorFragment
+                Intent i = new Intent(mContext, QuestionEditorActivity.class);
+                // pass the id of the question as an intent
+                i.putExtra(QuestionEditorFragment.EXTRA_QUESTION_ID, question.getId());
+                mContext.startActivity(i);
             }
         }
     } // end ViewHolder

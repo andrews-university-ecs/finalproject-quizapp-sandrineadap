@@ -10,9 +10,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import java.util.UUID;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -20,6 +23,8 @@ import android.widget.RadioGroup;
  * create an instance of this fragment.
  */
 public class QuestionEditorFragment extends Fragment {
+    /** key used to pass the id of a bug */
+    public static final String EXTRA_QUESTION_ID = "edu.andrews.cptr252.sandrine.quizapp.question_id";
 
     /** Tag for logging fragment messages */
     public static final String TAG = "QuestionEditorFragment";
@@ -46,19 +51,18 @@ public class QuestionEditorFragment extends Fragment {
     }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment QuestionEditorFragment.
+     * Create a new BugDetailsFragment with a given Bug id as an argument.
+     * @param questionId
+     * @return A reference to the new BugDetailsFragment
      */
-    // TODO: Rename and change types and number of parameters
-    public static QuestionEditorFragment newInstance(String param1, String param2) {
+    public static QuestionEditorFragment newInstance(UUID questionId) {
         QuestionEditorFragment fragment = new QuestionEditorFragment();
+
+        // Create a new argument Bundle object.
+        // Add the Question id as an argument.
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putSerializable(EXTRA_QUESTION_ID, questionId);
+
         fragment.setArguments(args);
         return fragment;
     }
@@ -66,12 +70,13 @@ public class QuestionEditorFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+        getActivity().setTitle(R.string.question_editor_label);
 
-            mQuestion = new Question();
-        }
+        // Extract question id from Bundle
+        UUID questionId = (UUID)getArguments().getSerializable(EXTRA_QUESTION_ID);
+        // Get the question with the id from the Bundle.
+        // This will be the question that the fragment displays.
+        mQuestion = QuestionList.getInstance(getActivity()).getQuestion(questionId);
     }
 
     @Override
@@ -81,6 +86,7 @@ public class QuestionEditorFragment extends Fragment {
 
         // get reference to EditText box for question title
         mContentField = v.findViewById(R.id.question_editor_TextMultiLine);
+        mContentField.setText(mQuestion.getContent());
         mContentField.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -100,9 +106,23 @@ public class QuestionEditorFragment extends Fragment {
             }
         });
 
-        mRadioGroupChoices = v.findViewById(R.id.radioButtonGroup_choices);
-        //mRadioGroupChoices.setOnCheckedChangeListener();
+        mRadioGroupChoices = (RadioGroup) v.findViewById(R.id.radioButtonGroup_choices);
+        mRadioGroupChoices.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int selectedId) {
+
+                // check which button was clicked
+                switch(selectedId) {
+                    case R.id.radioButton_true:
+                        mQuestion.setAnswer(true);
+                        break;
+                    case R.id.radioButton_false:
+                        mQuestion.setAnswer(false);
+                        break;
+                }// end of switch
+            }// end of onChecked Changed
+        });// end of onCheckedChangedListener
 
         return v;
-    }
-}
+    }// end of OnCreateView
+}// end of QuestionEditor Fragment

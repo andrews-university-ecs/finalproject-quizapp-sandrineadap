@@ -52,14 +52,14 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
                 android:text="@string/true_choice"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
 
             <RadioButton
                 android:id="@+id/radioButton_false"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/false_choice"
-                android:textSize="16sp" />
+                android:textSize="16sp"/>
         </RadioGroup>
 
     </LinearLayout>
