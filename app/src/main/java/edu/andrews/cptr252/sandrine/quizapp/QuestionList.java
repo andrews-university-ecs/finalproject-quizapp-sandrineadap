@@ -16,18 +16,27 @@ public class QuestionList {
 
     private Context mAppContext;
 
+    /**
+     * Add a question to the list.
+     * @param question is the question to add.
+     */
+    public void addQuestion(Question question) {
+        mQuestions.add(question);
+    }
+
+
     /** constructor */
     private QuestionList(Context appContext) {
         mAppContext = appContext;
         mQuestions = new ArrayList<>();
-        // for now, create a list of 10 dummy questions
-        for (int i = 0; i < 10; i++) {
-            Question question = new Question();
-            question.setContent("Question #" + i);
-            // every other answer is true
-            question.setAnswer(i % 2 == 0);
-            mQuestions.add(question);
-        }
+//        // for now, create a list of 10 dummy questions
+//        for (int i = 0; i < 10; i++) {
+//            Question question = new Question();
+//            question.setContent("Question #" + i);
+//            // every other answer is true
+//            question.setAnswer(i % 2 == 0);
+//            mQuestions.add(question);
+//        }
     }
 
     /**

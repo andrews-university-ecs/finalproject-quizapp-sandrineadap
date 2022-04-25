@@ -1,7 +1,11 @@
 package edu.andrews.cptr252.sandrine.quizapp;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
@@ -28,12 +32,45 @@ public class QuestionListFragment extends Fragment {
     /** RecyclerView that displays list of questions */
     private RecyclerView mRecyclerView;
 
-    /** Adapter that generates/reuses views to display bugs */
+    /** Adapter that generates/reuses views to display questions */
     private QuestionAdapter mQuestionAdapter;
+
+
+    /** Create a new question, add it to the list and launch question editor. */
+    private void addQuestion() {
+        // create new question
+        Question question = new Question();
+        // add question to the list
+        QuestionList.getInstance(getActivity()).addQuestion(question);
+        // create an intent to send to QuestionEditorActivity with question Id as extra
+        Intent intent = new Intent(getActivity(), QuestionEditorActivity.class);
+        intent.putExtra(QuestionEditorFragment.EXTRA_QUESTION_ID, question.getId());
+        // launch QuestionEditorActivity
+        startActivityForResult(intent, 0);
+    }
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        // Inflate the menu; this adds items to the action bar if it is present.
+        inflater.inflate(R.menu.menu_question_list, menu);
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.menu_item_add_question:
+                // new question icon clicked
+                addQuestion();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        setHasOptionsMenu(true);
         getActivity().setTitle(R.string.question_list_label);
 
         mQuestions = QuestionList.getInstance(getActivity()).getQuestions();

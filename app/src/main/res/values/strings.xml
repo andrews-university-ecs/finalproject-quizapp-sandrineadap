@@ -11,6 +11,6 @@
     <string name="false_choice">False</string>
 
     <string name="question_editor_label">Question Editor</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="new_question">New Question</string>
+
 </resources>
