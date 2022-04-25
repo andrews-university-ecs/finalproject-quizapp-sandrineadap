@@ -13,4 +13,7 @@
     <string name="question_editor_label">Question Editor</string>
     <string name="new_question">New Question</string>
 
+    <string name="undo_option">UNDO</string>
+    <string name="question_deleted_msg">%1$s deleted!</string>
+
 </resources>

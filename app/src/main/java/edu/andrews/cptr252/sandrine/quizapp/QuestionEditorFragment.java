@@ -33,9 +33,10 @@ public class QuestionEditorFragment extends Fragment {
     /** Reference to question content field for Question*/
     private EditText mContentField;
     /** Reference to radio button group */
-    // private RadioButton mRadioButtonTrue;
-    // private RadioButton mRadioButtonFalse;
+    private RadioButton mRadioButtonTrue;
+    private RadioButton mRadioButtonFalse;
     private RadioGroup mRadioGroupChoices;
+
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -106,7 +107,15 @@ public class QuestionEditorFragment extends Fragment {
             }
         });
 
+        // get references to radio group & buttons
         mRadioGroupChoices = (RadioGroup) v.findViewById(R.id.radioButtonGroup_choices);
+        mRadioButtonTrue = v.findViewById(R.id.radioButton_true);
+        mRadioButtonFalse = v.findViewById(R.id.radioButton_false);
+
+        // set checked of buttons
+        mRadioButtonTrue.setChecked(mQuestion.getAnswer());
+        mRadioButtonFalse.setChecked(!mQuestion.getAnswer());
+
         mRadioGroupChoices.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup radioGroup, int selectedId) {
@@ -125,4 +134,14 @@ public class QuestionEditorFragment extends Fragment {
 
         return v;
     }// end of OnCreateView
+
+    /**
+     * Update modified question when app is paused.
+     */
+    @Override
+    public void onPause() {
+        super.onPause();
+        QuestionList.getInstance(getActivity()).updateQuestion(mQuestion);
+    }
+
 }// end of QuestionEditor Fragment

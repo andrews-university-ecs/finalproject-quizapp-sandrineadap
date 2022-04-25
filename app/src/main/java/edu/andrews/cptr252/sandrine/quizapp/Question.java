@@ -15,11 +15,17 @@ public class Question {
     private boolean mAnswer;
 
     /**
-     * Create an initialize new question
+     * Create an initialize question from UUID.
+     * If no UUID is given, create one.
      */
+    public Question(UUID id) {
+        mId = id;
+    }
+
     public Question() {
         // Generate unique identifier for new bug
-        mId = UUID.randomUUID();
+        // mId = UUID.randomUUID();
+        this(UUID.randomUUID());
     }
 
     /**
