@@ -51,9 +51,9 @@ public class QuestionEditorFragment extends Fragment {
     }
 
     /**
-     * Create a new BugDetailsFragment with a given Bug id as an argument.
+     * Create a new QuestionEditorFragment with a given Question id as an argument.
      * @param questionId
-     * @return A reference to the new BugDetailsFragment
+     * @return A reference to the new QuestionEditorFragment
      */
     public static QuestionEditorFragment newInstance(UUID questionId) {
         QuestionEditorFragment fragment = new QuestionEditorFragment();
