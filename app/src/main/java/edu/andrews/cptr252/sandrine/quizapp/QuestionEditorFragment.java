@@ -10,7 +10,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -23,7 +22,7 @@ import java.util.UUID;
  * create an instance of this fragment.
  */
 public class QuestionEditorFragment extends Fragment {
-    /** key used to pass the id of a bug */
+    /** key used to pass the id of a question */
     public static final String EXTRA_QUESTION_ID = "edu.andrews.cptr252.sandrine.quizapp.question_id";
 
     /** Tag for logging fragment messages */
@@ -37,23 +36,13 @@ public class QuestionEditorFragment extends Fragment {
     private RadioButton mRadioButtonFalse;
     private RadioGroup mRadioGroupChoices;
 
-
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
     public QuestionEditorFragment() {
         // Required empty public constructor
     }
 
     /**
      * Create a new QuestionEditorFragment with a given Question id as an argument.
-     * @param questionId
+     * @param questionId is the id of the question
      * @return A reference to the new QuestionEditorFragment
      */
     public static QuestionEditorFragment newInstance(UUID questionId) {
@@ -108,7 +97,7 @@ public class QuestionEditorFragment extends Fragment {
         });
 
         // get references to radio group & buttons
-        mRadioGroupChoices = (RadioGroup) v.findViewById(R.id.radioButtonGroup_choices);
+        mRadioGroupChoices = v.findViewById(R.id.radioButtonGroup_choices);
         mRadioButtonTrue = v.findViewById(R.id.radioButton_true);
         mRadioButtonFalse = v.findViewById(R.id.radioButton_false);
 

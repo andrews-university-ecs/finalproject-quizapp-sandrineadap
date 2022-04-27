@@ -79,8 +79,6 @@ public class MainScreenFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 launchQuestionList();
-                // log a message for now
-                Log.d(TAG, "edit_questions_button was pressed");
             }
         });
 

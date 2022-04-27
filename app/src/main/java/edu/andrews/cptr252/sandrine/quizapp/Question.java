@@ -14,6 +14,9 @@ public class Question {
     /** Correct answer (true or false questions) */
     private boolean mAnswer;
 
+    /** Comment/explanation to the answer (optional)*/
+    private String mComment;
+
     /**
      * Create an initialize question from UUID.
      * If no UUID is given, create one.
@@ -23,7 +26,7 @@ public class Question {
     }
 
     public Question() {
-        // Generate unique identifier for new bug
+        // Generate unique identifier for new question
         // mId = UUID.randomUUID();
         this(UUID.randomUUID());
     }
@@ -52,4 +55,6 @@ public class Question {
 
     public boolean getAnswer() { return mAnswer; }
     public void setAnswer(boolean answer) { mAnswer = answer; }
+    public String getComment() { return mComment; }
+    public void setComment(String comment) { mComment = comment; }
 }
