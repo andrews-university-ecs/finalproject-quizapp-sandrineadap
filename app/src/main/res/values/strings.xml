@@ -9,6 +9,8 @@
     <string name="answer_title_label">Correct Answer\:</string>
     <string name="true_choice">True</string>
     <string name="false_choice">False</string>
+    <string name="comment_title_label">Explanation or Comment for answer (optional)\:</string>
+    <string name="comment_hint">Explain why the answer is true or false.</string>
 
     <string name="question_editor_label">Question Editor</string>
     <string name="new_question">New Question</string>

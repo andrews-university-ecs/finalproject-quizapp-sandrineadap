@@ -7,11 +7,11 @@
     tools:context=".MainScreenFragment" >
 
     <Button
-        android:id="@+id/editQuestionsButton"
+        android:id="@+id/startQuizButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_margin="100dp"
-        android:text="@string/edit_questions_button"
+        android:text="@string/start_quiz_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -19,17 +19,17 @@
         app:layout_constraintVertical_bias="0.4" />
 
     <Button
-        android:id="@+id/startQuizButton"
+        android:id="@+id/editQuestionsButton"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:layout_marginLeft="100dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="100dp"
-        android:text="@string/start_quiz_button"
+        android:text="@string/edit_questions_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editQuestionsButton"
+        app:layout_constraintTop_toBottomOf="@+id/startQuizButton"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

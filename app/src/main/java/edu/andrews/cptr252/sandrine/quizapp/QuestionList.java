@@ -17,7 +17,7 @@ public class QuestionList {
     /** Instance variable for QuestionList */
     private static QuestionList sOurInstance;
 
-    /** SQLite DB where bugs are stored */
+    /** SQLite DB where questions are stored */
     private SQLiteDatabase mDatabase;
 
     /**
@@ -34,7 +34,7 @@ public class QuestionList {
     }
 
     /**
-     * Build a query for Bug DB.
+     * Build a query for Question DB.
      * @param whereClause defines the where clause of a SQL query
      * @param whereArgs defines where arguments for a SQL query
      * @return Object defining a SQL query
