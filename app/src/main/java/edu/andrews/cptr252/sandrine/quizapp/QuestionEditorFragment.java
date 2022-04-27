@@ -62,6 +62,9 @@ public class QuestionEditorFragment extends Fragment {
         super.onCreate(savedInstanceState);
         getActivity().setTitle(R.string.question_editor_label);
 
+        setHasOptionsMenu(true);
+        getActivity().setTitle(R.string.question_editor_label);
+
         // Extract question id from Bundle
         UUID questionId = (UUID)getArguments().getSerializable(EXTRA_QUESTION_ID);
         // Get the question with the id from the Bundle.

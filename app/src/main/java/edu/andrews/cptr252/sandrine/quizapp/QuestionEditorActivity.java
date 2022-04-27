@@ -14,16 +14,6 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class QuestionEditorActivity extends FragmentActivity {
-//    @Override
-//    protected Fragment createFragment() {
-//        // QuestionListFragment launches QuestionEditorActivity with a specific question id.
-//        // Get the Intent sent to this activity from the QuestionListFragment.
-//        UUID questionId;
-//        questionId = (UUID)getIntent()
-//                .getSerializableExtra(QuestionEditorFragment.EXTRA_QUESTION_ID);
-//        // Create a new instance of the QuestionEditorFragment with the question id as an argument.
-//        return QuestionEditorFragment.newInstance(questionId);
-//    }
 
     public static final String TAG = "QuestionEditorActivity";
 
@@ -88,7 +78,6 @@ public class QuestionEditorActivity extends FragmentActivity {
             @Override
             public void onPageScrollStateChanged(int i) {
             }
-        });
-    }
-
-        }
+        }); // end of OnPageChangeListener
+    }// end of onCreate
+}// end of QuestionEditorActivity

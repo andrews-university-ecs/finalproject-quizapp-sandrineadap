@@ -21,11 +21,12 @@
         app:layout_constraintVertical_bias="0.408" />
 
     <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="0dp"
+        android:id="@+id/quizRadioGroup"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -33,39 +34,34 @@
         app:layout_constraintTop_toBottomOf="@+id/quizQuestionTextView"
         app:layout_constraintVertical_bias="0.021">
 
-        <LinearLayout
-            android:layout_width="fill_parent"
+        <RadioButton
+            android:id="@+id/quizRadioTrue"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
+            android:layout_weight="1"
+            android:text="@string/true_choice" />
 
-            <RadioButton
-                android:id="@+id/quizRadioTrue"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/true_choice" />
+        <RadioButton
+            android:id="@+id/quizRadioFalse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/false_choice" />
 
-            <RadioButton
-                android:id="@+id/quizRadioFalse"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/false_choice" />
-        </LinearLayout>
     </RadioGroup>
 
     <Button
         android:id="@+id/submitButton"
-        android:layout_width="104dp"
-        android:layout_height="52dp"
+        android:layout_width="134dp"
+        android:layout_height="85dp"
         android:text="@string/submit_button"
         app:iconPadding="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
-        app:layout_constraintVertical_bias="0.508" />
+        app:layout_constraintTop_toBottomOf="@+id/quizRadioGroup"
+        app:layout_constraintVertical_bias="0.517" />
 
     <Button
         android:id="@+id/prevButton"
@@ -76,7 +72,7 @@
         app:layout_constraintEnd_toStartOf="@+id/submitButton"
         app:layout_constraintHorizontal_bias="0.452"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/quizRadioGroup"
         app:layout_constraintVertical_bias="0.515" />
 
     <Button
@@ -88,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.636"
         app:layout_constraintStart_toEndOf="@+id/submitButton"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup"
+        app:layout_constraintTop_toBottomOf="@+id/quizRadioGroup"
         app:layout_constraintVertical_bias="0.517" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

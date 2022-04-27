@@ -16,6 +16,7 @@
     <string name="undo_option">UNDO</string>
     <string name="question_deleted_msg">%1$s deleted!</string>
 
+    <string name="quiz_mode_label">Quiz Mode</string>
     <string name="submit_button">Submit</string>
     <string name="next_button">Next</string>
     <string name="prev_button">Prev</string>
