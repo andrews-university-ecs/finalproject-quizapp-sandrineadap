@@ -52,7 +52,7 @@ public class QuizActivity extends FragmentActivity {
             public Fragment getItem(int i) {
                 Question question = mQuestions.get(i);
                 // Create a new instance of the QuizFragment with question id as argument
-                return QuizFragment.newInstance(question.getId());
+                return QuizFragment.newInstance(question.getId(), i);
             }
 
             @Override
@@ -72,7 +72,6 @@ public class QuizActivity extends FragmentActivity {
                 myToolbar.setTitle("Question #" + (i+1));
                 setActionBar(myToolbar);
                 getActionBar().setTitle("Question #" + (i+1));
-                getActionBar().setDisplayShowTitleEnabled(true);
                 Log.d(TAG, (String) myToolbar.getTitle());
                 Log.d(TAG, Integer.toString(i+1));
             }

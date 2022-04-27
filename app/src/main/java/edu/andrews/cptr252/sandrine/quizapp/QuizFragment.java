@@ -13,6 +13,8 @@ import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.widget.Toolbar;
+
 import es.dmoral.toasty.Toasty;
 
 import java.util.UUID;
@@ -41,6 +43,8 @@ public class QuizFragment extends Fragment {
     /** user's response to question */
     private Boolean mChoice;
 
+    private int mQuestionCounter;
+
     public QuizFragment() {
         // Required empty public constructor
     }
@@ -50,13 +54,15 @@ public class QuizFragment extends Fragment {
      * @param questionId is the id of the question
      * @return A reference to the new QuizFragment
      */
-    public static QuizFragment newInstance(UUID questionId) {
+    public static QuizFragment newInstance(UUID questionId, int i) {
         QuizFragment fragment = new QuizFragment();
 
         // Create a new argument Bundle object.
         // Add the Question id as an argument.
         Bundle args = new Bundle();
         args.putSerializable(EXTRA_QUESTION_ID, questionId);
+
+        fragment.mQuestionCounter = i + 1;
 
         fragment.setArguments(args);
         return fragment;
@@ -85,6 +91,7 @@ public class QuizFragment extends Fragment {
 //        // Inflate the menu; this adds items to the action bar if it is present.
 //        inflater.inflate(R.menu.menu_question_list, menu);
 //    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +111,10 @@ public class QuizFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_quiz, container, false);
+
+        Toolbar myToolbar = v.findViewById(R.id.quiz_toolbar);
+        myToolbar.setTitle("Question #" + mQuestionCounter);
+        getActivity().setActionBar(myToolbar);
 
         // get reference to EditText box for question title
         mContentField = v.findViewById(R.id.quizQuestionTextView);
