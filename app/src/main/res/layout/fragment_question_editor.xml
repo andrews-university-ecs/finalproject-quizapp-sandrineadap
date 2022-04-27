@@ -63,24 +63,6 @@
                 android:textSize="16sp" />
         </RadioGroup>
 
-        <TextView
-            android:id="@+id/comment_title_textView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/comment_title_label" />
-
-        <EditText
-            android:id="@+id/comment_editor_TextMultiLine"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:autofillHints="@string/comment_hint"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="@string/comment_hint"
-            android:inputType="textMultiLine"
-            android:minHeight="48dp"
-            tools:ignore="TextContrastCheck" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
