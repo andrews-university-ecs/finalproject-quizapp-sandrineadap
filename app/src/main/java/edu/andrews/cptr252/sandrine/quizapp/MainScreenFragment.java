@@ -56,6 +56,11 @@ public class MainScreenFragment extends Fragment {
         startActivity(i);
     }
 
+    private void launchQuiz() {
+        Intent i = new Intent(MainScreenFragment.this.getContext(), QuizActivity.class);
+        startActivity(i);
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +92,7 @@ public class MainScreenFragment extends Fragment {
         mStartQuizButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // TODO: Start Quiz Button should launch Quiz Screen
+                launchQuiz();
                 // log a message for now
                 Log.d(TAG, "start_quiz_button was pressed");
             }
