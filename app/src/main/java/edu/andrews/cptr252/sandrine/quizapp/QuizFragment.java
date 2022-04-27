@@ -91,7 +91,7 @@ public class QuizFragment extends Fragment {
         getActivity().setTitle(R.string.quiz_mode_label);
 
         setHasOptionsMenu(true);
-        getActivity().setTitle(R.string.quiz_mode_label);
+        getActivity().setTitle("hello");
 
         // Extract question id from Bundle
         UUID questionId = (UUID)getArguments().getSerializable(EXTRA_QUESTION_ID);
