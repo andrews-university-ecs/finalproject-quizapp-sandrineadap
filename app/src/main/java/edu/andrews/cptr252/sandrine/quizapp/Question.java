@@ -12,7 +12,7 @@ public class Question {
     private String mContent;
 
     /** Correct answer (true or false questions) */
-    private boolean mAnswer;
+    private Boolean mAnswer;
 
     /**
      * Create an initialize question from UUID.
@@ -50,6 +50,6 @@ public class Question {
         mContent = content;
     }
 
-    public boolean getAnswer() { return mAnswer; }
+    public Boolean getAnswer() { return mAnswer; }
     public void setAnswer(boolean answer) { mAnswer = answer; }
 }

@@ -4,15 +4,16 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
+import es.dmoral.toasty.Toasty;
 
 import java.util.UUID;
 
@@ -25,9 +26,6 @@ public class QuizFragment extends Fragment {
     /** key used to pass the id of a question */
     public static final String EXTRA_QUESTION_ID = "edu.andrews.cptr252.sandrine.quizapp.question_id";
 
-    /** Tag for logging fragment messages */
-    public static final String TAG = "QuestionEditorFragment";
-
     /** Question that is being viewed/edited */
     private Question mQuestion;
 
@@ -37,8 +35,11 @@ public class QuizFragment extends Fragment {
     /** Reference to radio button group */
     private RadioGroup mRadioGroupChoices;
 
+    /** Reference to buttons */
+    private Button mSubmitButton;
+
     /** user's response to question */
-    private boolean mChoice;
+    private Boolean mChoice;
 
     public QuizFragment() {
         // Required empty public constructor
@@ -60,12 +61,30 @@ public class QuizFragment extends Fragment {
         fragment.setArguments(args);
         return fragment;
     }
-    @Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        // Inflate the menu; this adds items to the action bar if it is present.
-        inflater.inflate(R.menu.menu_question_list, menu);
+
+    /**
+     * When user hits submit, show toast alerting the user whether
+     * their response was correct, incorrect, or if they left it blank.
+     */
+    public void showToast() {
+        if (mChoice == null) {
+            Toasty.info(getActivity(), "Please make a selection.", Toast.LENGTH_SHORT).show();
+        }
+        else if (mChoice != mQuestion.getAnswer()) {
+            Toasty.error(getActivity(), "Sorry, incorrect. Try again.", Toast.LENGTH_SHORT).show();
+        }
+        else if (mChoice == mQuestion.getAnswer()){
+            Toasty.success(getActivity(), "Correct answer!", Toast.LENGTH_SHORT).show();
+        }
     }
+
+    // TODO: Show action bar
+//    @Override
+//    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+//        super.onCreateOptionsMenu(menu, inflater);
+//        // Inflate the menu; this adds items to the action bar if it is present.
+//        inflater.inflate(R.menu.menu_question_list, menu);
+//    }
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -101,16 +120,23 @@ public class QuizFragment extends Fragment {
                 switch(selectedId) {
                     case R.id.quizRadioTrue:
                         mChoice = true;
-                        Log.d(TAG, mChoice + "selected");
                         break;
                     case R.id.quizRadioFalse:
                         mChoice = false;
-                        Log.d(TAG, mChoice + "selected");
                         break;
                 }// end of switch
             }// end of onChecked Changed
         });// end of onCheckedChangedListener
 
+        //listener to handle submit button presses
+        mSubmitButton = v.findViewById(R.id.submitButton);
+        mSubmitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick (View v) {
+                showToast();
+            }
+        });
+
         return v;
-    }
-}
+    }// end of onCreate
+}// end of QuizFragment
