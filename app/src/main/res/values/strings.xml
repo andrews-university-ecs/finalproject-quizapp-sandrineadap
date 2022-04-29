@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Quiz App</string>
+    <string name="app_name">Flashcard Quiz App</string>
     <string name="edit_questions_button">Edit Questions</string>
     <string name="start_quiz_button">Start Quiz</string>
 
