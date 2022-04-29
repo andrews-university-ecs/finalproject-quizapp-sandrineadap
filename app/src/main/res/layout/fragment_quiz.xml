@@ -40,16 +40,19 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:paddingLeft="10dp"
         android:paddingTop="15dp"
+        android:paddingRight="10dp"
+        android:paddingBottom="0dp"
         android:text="@string/question_title_label"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/quizRadioGroup"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.594" />
+        app:layout_constraintVertical_bias="0.912" />
 
     <RadioGroup
         android:id="@+id/quizRadioGroup"
@@ -61,10 +64,10 @@
         android:paddingBottom="15dp"
         app:layout_constraintBottom_toBottomOf="@+id/view"
         app:layout_constraintEnd_toEndOf="@+id/view"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="@+id/view"
         app:layout_constraintTop_toTopOf="@+id/view"
-        app:layout_constraintVertical_bias="0.831">
+        app:layout_constraintVertical_bias="0.63">
 
         <RadioButton
             android:id="@+id/quizRadioTrue"
